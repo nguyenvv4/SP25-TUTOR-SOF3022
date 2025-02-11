@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Day la trang chu</h1>
+<!--form j4-->
+<!--<form action="/login" method="post">-->
+<!--    <label>email</label>-->
+<!--    <input type="text" name="email"> <i th:text="${email}"></i><br>-->
+<!--    <label>password</label>-->
+<!--    <input type="text" name="password"> <i th:text="${password}"></i> <br>-->
+<!--    <button type="submit">Login</button>-->
+<!--</form>-->
+<!--form j4-->
+<form action="/login" th:object="${account}" method="post">
+    <label>email</label>
+    <input type="text" name="email"> <i th:errors="*{email}"></i><br>
+    <label>password</label>
+    <input type="text" name="password"> <i th:errors="*{password}"></i> <br>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
