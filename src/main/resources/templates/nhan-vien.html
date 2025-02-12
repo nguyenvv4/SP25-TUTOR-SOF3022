@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Day la trang hien thi nhan vien</h1>
+<form action="/nhan-vien/add" method="post" th:object="${nhanVien}">
+    <label>id</label>
+    <input type="text" th:field="*{id}"> <br>
+    <label>ho ten</label>
+    <input type="text" th:field="*{hoTen}"> <i th:errors="*{hoTen}"></i> <br>
+    <label>tuoi</label>
+    <input type="text" th:field="*{tuoi}"> <i th:errors="*{tuoi}"></i><br>
+    <label>gioi tinh</label>
+    <input type="radio" th:field="*{gioiTinh}" value="nam"> Nam
+    <input type="radio" th:field="*{gioiTinh}" value="nu"> Nu <br>
+    <i th:errors="*{gioiTinh}"></i> <br>
+    <label>trang thai</label>
+    <input type="radio" th:field="*{trangThai}" value="hoat dong"> hoat dong
+    <input type="radio" th:field="*{trangThai}" value="ngung hoat dong"> ngung hoat dong <br>
+    <i th:errors="*{trangThai}"></i> br
+
+    <button type="submit">Add New</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>ho ten</td>
+        <td>tuoi</td>
+        <td>gioi tinh</td>
+        <td>trang thai</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="nhanVien: ${nhanVienList}">
+        <td th:text="${nhanVien.id}"></td>
+        <td th:text="${nhanVien.hoTen}"></td>
+        <td th:text="${nhanVien.tuoi}"></td>
+        <td th:text="${nhanVien.gioiTinh}"></td>
+        <td th:text="${nhanVien.trangThai}"></td>
+        <!-- cu phap th:href="@{|duong dan|}"-->
+        <td><a th:href="@{|/nhan-vien/delete/${nhanVien.id}|}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
