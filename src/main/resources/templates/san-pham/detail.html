@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+
+<form action="/sam-pham/add"  method="post">
+    <label>ma san pham</label>
+    <input type="text" name="maSanPham" th:field="*{sanPham.maSanPham}"> <br>
+    <label>ten san pham</label>
+    <input type="text" name="tenSanPham"> <br>
+    <label>mo ta</label>
+    <input type="text" name="moTa"> <br>
+    <label>danh muc</label>
+    <select name="idDanhMuc" id="" th:field="*{sanPham.idDanhMuc}">
+        <option th:each="danhMuc : ${listDanhMuc}" th:value="${danhMuc.id}" th:text="${danhMuc.tenDanhMuc}"></option>
+    </select>
+    <br>
+    <label>trang thai</label>
+    <input type="radio" name="trangThai" value="Hoat dong" th:field="*{sanPham.trangThai}">Hoat dong
+    <input type="radio" name="trangThai" value="Khong hoat dong" th:field="*{sanPham.trangThai}">Khong hoat dong
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>
