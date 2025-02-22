@@ -29,6 +29,7 @@ public class SanPhamController {
         List<DanhMuc> listDanhMuc = danhMucRepo.findAll();
         model.addAttribute("listDanhMuc", listDanhMuc);
         List<SanPham> sanPhamList = sanPhamRepo.findAll();
+//        List<SanPham> sanPhamList = sanPhamRepo.timKiemTheoTenVaTrangThai("Ao thun nam co tron","Hoat dong");
         model.addAttribute("sanPhamList", sanPhamList);
         return "/san-pham/trang-chu.html";
     }

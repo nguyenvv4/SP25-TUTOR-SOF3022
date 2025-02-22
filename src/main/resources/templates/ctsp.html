@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <td>id ctsp</td>
+    <td>ten san pham</td>
+    <td>ma sac</td>
+    <td>size</td>
+    <td>so luong ton</td>
+    <td>ten danh muc</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="ctsp : ${list}">
+    <td th:text="${ctsp.id}"></td>
+    <td th:text="${ctsp.sanPham.tenSanPham}"></td>
+    <td th:text="${ctsp.mauSac.tenMau}"></td>
+    <td th:text="${ctsp.size.tenSize}"></td>
+    <td th:text="${ctsp.soLuongTon}"></td>
+    <td th:text="${ctsp.sanPham.idDanhMuc.tenDanhMuc}"></td>
+  </tr>
+  </tbody>
+</table>
+<h1>Danh muc Dto</h1>
+<table>
+  <tr>
+    <td>id</td>
+    <td>ten danh muc</td>
+    <td>so luong san pham</td>
+  </tr>
+  <tr th:each="danhMuc : ${listDanhMucDto}">
+    <td th:text="${danhMuc.id}"></td>
+    <td th:text="${danhMuc.tenDanhMuc}"></td>
+    <td th:text="${danhMuc.soLuongSp}"></td>
+  </tr>
+</table>
+</body>
+</html>
